@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
-public class bit : MonoBehaviour
+public class Bit : MonoBehaviour
 {
-    SpriteRenderer spriteRender;
-    bool state = true;
-
+    private SpriteRenderer spriteRenderer;
+    public bool state = false;
     // Start is called before the first frame update
     void Start()
     {
-        spriteRender = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -18,19 +17,15 @@ public class bit : MonoBehaviour
     {
         if (state)
         {
-            spriteRender.color = Color.green;
+            spriteRenderer.color = Color.red;
         }
         else
         {
-            spriteRender.color = Color.red;
+            spriteRenderer.color = Color.green;
         }
     }
-
-    private void OnMouseUp()
+    public void OnMouseDown()
     {
-        if (state)
-        {
-            state = !state;
-        }
+        state = !state;
     }
 }
